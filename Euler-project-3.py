@@ -11,13 +11,17 @@ def is_prime(n):
       i += 1
   return True
 
-# iterate through all numbers up till n/2+1 to find a factor of n to divide n by to 
-# make smaller until largest prime factor
+
 def largest_prime_factor(n):
     for i in range (2, n):
+        while n % i == 0:
+            n //= i
+        if is_prime(n):
+            break 
+    return(n)
          
     
-print(largest_prime_factor(52))
+print(largest_prime_factor(600851475143))
 
         
     
